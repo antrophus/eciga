@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ECIGA</title>
-<link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/assets/img/icon/favicon_lil.ico" >
+<link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/assets/img/icon/favicon_lil.ico">
 <link href="${pageContext.request.contextPath}/assets/css/reset.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/assets/css/common.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/assets/css/admin.css" rel="stylesheet" type="text/css">
@@ -20,10 +20,10 @@
 		<div id="nav">
 			<h1>관리자페이지</h1>
 			<ul class="clearfix">
-				<li><a href="./mannageGoods.html">제품 등록/관리</a></li>
-				<li><a href="./mannageUser.html">회원관리</a></li>
-				<li><a href="./mannageOrder.html">배송관리</a></li>
-				<li><a href="./manageCustomer.html">1:1 고객문의</a></li>
+				<li><a href="${pageContext.request.contextPath}/admin/goods">제품 등록/관리</a></li>
+				<li><a href="${pageContext.request.contextPath}/admin/user">회원관리</a></li>
+				<li><a href="${pageContext.request.contextPath}/admin/order">배송관리</a></li>
+				<li><a href="${pageContext.request.contextPath}/admin/customer">1:1 고객문의</a></li>
 			</ul>
 		</div>
 		<!-- content-head -->
@@ -32,127 +32,54 @@
 				<button id="btnAddgoods">제품 추가</button>
 			</div>
 			<div class="product-container">
-				<div class="product-item">
-					<img src="${pageContext.request.contextPath}/assets/img/hybrid30cce/hybrid30cce_khaki.jpeg" alt="제품 이미지" class="product-image">
-					<p>하이브리드 카고 에디션</p>
-					<button class="edit-btn">
-						<img src="${pageContext.request.contextPath}/assets/img/icon/edit.png" alt="수정 아이콘" class="edit-icon"> 수정
-					</button>
-				</div>
-				<div class="product-item">
-					<img src="${pageContext.request.contextPath}/assets/img/aible/aible_champagneGold.jpg" alt="제품 이미지" class="product-image">
-					<p>에이블 2.0</p>
-					<button class="edit-btn">
-						<img src="${pageContext.request.contextPath}/assets/img/icon/edit.png" alt="수정 아이콘" class="edit-icon"> 수정
-					</button>
-				</div>
-				<div class="product-item">
-					<img src="${pageContext.request.contextPath}/assets/img/hybrid30/hybri30_white.jpg" alt="제품 이미지" class="product-image">
-					<p>하이브리드 3.0</p>
-					<button class="edit-btn">
-						<img src="${pageContext.request.contextPath}/assets/img/icon/edit.png" alt="수정 아이콘" class="edit-icon"> 수정
-					</button>
-				</div>
-				<div class="product-item">
-					<img src="${pageContext.request.contextPath}/assets/img/hybrid30cce/hybrid30cce_brown.jpg" alt="제품 이미지" class="product-image">
-					<p>하이브리드 카고 에디션</p>
-					<button class="edit-btn">
-						<img src="${pageContext.request.contextPath}/assets/img/icon/edit.png" alt="수정 아이콘" class="edit-icon"> 수정
-					</button>
-				</div>
-				<div class="product-item">
-					<img src="${pageContext.request.contextPath}/assets/img/aible/aible_black.jpg" alt="제품 이미지" class="product-image">
-					<p>에이블 2.0</p>
-					<button class="edit-btn">
-						<img src="${pageContext.request.contextPath}/assets/img/icon/edit.png" alt="수정 아이콘" class="edit-icon"> 수정
-					</button>
-				</div>
-				<div class="product-item">
-					<img src="${pageContext.request.contextPath}/assets/img/hybrid30/hybri30_black.jpg" alt="제품 이미지" class="product-image">
-					<p>하이브리드 3.0</p>
-					<button class="edit-btn">
-						<img src="${pageContext.request.contextPath}/assets/img/icon/edit.png" alt="수정 아이콘" class="edit-icon"> 수정
-					</button>
-				</div>
-				<div class="product-item">
-					<img src="${pageContext.request.contextPath}/assets/img/hybrid30cce/hybrid30cce_brown.jpg" alt="제품 이미지" class="product-image">
-					<p>하이브리드 카고 에디션</p>
-					<button class="edit-btn">
-						<img src="${pageContext.request.contextPath}/assets/img/icon/edit.png" alt="수정 아이콘" class="edit-icon"> 수정
-					</button>
-				</div>
-				<div class="product-item">
-					<img src="${pageContext.request.contextPath}/assets/img/aible/aible_burgundy.jpg" alt="제품 이미지" class="product-image">
-					<p>에이블 2.0</p>
-					<button class="edit-btn">
-						<img src="${pageContext.request.contextPath}/assets/img/icon/edit.png" alt="수정 아이콘" class="edit-icon"> 수정
-					</button>
-				</div>
-				<div class="product-item">
-					<img src="${pageContext.request.contextPath}/assets/img/hybrid30/hybri30_yellow.jpg" alt="제품 이미지" class="product-image">
-					<p>하이브리드 3.0</p>
-					<button class="edit-btn">
-						<img src="${pageContext.request.contextPath}/assets/img/icon/edit.png" alt="수정 아이콘" class="edit-icon"> 수정
-					</button>
-				</div>
+				<!-- 상품 이미지 및 상품명 반복 영역 
+				<c:forEach var="product" items="${productList}">
+					<div class="product-item">
+						<img src="${pageContext.request.contextPath}/assets/img/${product.image}" alt="제품 이미지" class="product-image">
+						<p>${product.name}</p>
+						<button class="edit-btn" data-product-id="${product.id}">
+							<img src="${pageContext.request.contextPath}/assets/img/icon/edit.png" alt="수정 아이콘" class="edit-icon"> 수정
+						</button>
+						
+					</div>
+				</c:forEach>
+				 //상품 이미지 및 상품명 반복 영역 -->
+				<c:forEach var="product" items="${goodsList}">
+					<div class="product-item">
+						<img src="${pageContext.request.contextPath}/upload/${product.imgName}" alt="제품 이미지" class="product-image">
+						<!-- imgPath로 수정 -->
+						<p>${product.name}</p>
+						<p>${product.price} 원</p>
+						<!-- 상품 설명 추가 -->
+						<button class="edit-btn" data-product-id="${product.gno}">
+							<img src="${pageContext.request.contextPath}/assets/img/icon/edit.png" alt="수정 아이콘" class="edit-icon"> 수정
+						</button>
+					</div>
+				</c:forEach>
 			</div>
 			<!-- 제품 등록 모달 -->
 			<div id="modal" class="modal">
 				<div class="modal-content">
 					<h1>상품 등록</h1>
-					<form>
+					<form id="addgoods" action="${pageContext.request.contextPath}/admin/addgoods" method="post" enctype="multipart/form-data">
 						<div class="mdform-group">
-							<label for="image">이미지 추가</label> <input type="file" id="image" accept="image/*" multiple>
+							<label for="image">이미지 추가</label> <input type="file" id="image" name="image" accept="image/*" multiple>
 							<div id="image-preview" class="image-preview">
 								<!-- 이미지 미리보기 영역 -->
 							</div>
 						</div>
 						<div class="mdform-group">
-							<label for="price">가격</label> <input type="text" id="price" placeholder="가격을 입력하세요">
+							<input type="hidden" id="no" name="no">
 						</div>
 						<div class="mdform-group">
-							<label for="title">상품명</label> <input type="text" id="title" placeholder="상품명을 입력하세요">
+							<label for="price">가격</label> <input type="text" id="price" name="price" placeholder="가격을 입력하세요">
+						</div>
+						<div class="mdform-group">
+							<label for="title">상품명</label> <input type="text" id="title" name="name" placeholder="상품명을 입력하세요">
 						</div>
 						<div class="mdform-group">
 							<label for="description">상품 설명</label>
-							<textarea id="description" rows="4" placeholder="상품 설명을 입력하세요"></textarea>
-						</div>
-						<div class="mdform-group">
-							<p>색상</p>
-						</div>
-
-						<div class="filter-section">
-							<div class="color-grid">
-								<!-- 색깔 버튼들... -->
-								<div>
-									<button class="color-circle black"></button>
-									<p>Black</p>
-								</div>
-								<div>
-									<button class="color-circle white"></button>
-									<p>White</p>
-								</div>
-								<div>
-									<button class="color-circle "></button>
-									<p>undefined</p>
-								</div>
-								<div>
-									<button class="color-circle "></button>
-									<p>undefined</p>
-								</div>
-								<div>
-									<button class="color-circle "></button>
-									<p>undefined</p>
-								</div>
-								<div>
-									<button class="color-circle "></button>
-									<p>undefined</p>
-								</div>
-								<div>
-									<button class="color-circle "></button>
-									<p>undefined</p>
-								</div>
-							</div>
+							<textarea id="description" name="descript" rows="4" placeholder="상품 설명을 입력하세요"></textarea>
 						</div>
 
 						<div class="mdbutton-group">
@@ -160,6 +87,8 @@
 							<button type="reset">초기화</button>
 						</div>
 					</form>
+
+
 				</div>
 			</div>
 			<!-- 수정 모달 -->

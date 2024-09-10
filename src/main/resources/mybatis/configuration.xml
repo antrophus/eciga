@@ -18,6 +18,8 @@
 		<mapper resource="mybatis/mappers/user.xml" />
 		<mapper resource="mybatis/mappers/admin.xml" />
 		<mapper resource="mybatis/mappers/goods.xml" />
+		<mapper resource="mybatis/mappers/delivery.xml" />
+		<mapper resource="mybatis/mappers/customerAsk.xml" />
 		
 		 <!--
 		<mapper resource="mybatis/mappers/board.xml" />

@@ -5,19 +5,25 @@
 
 <mapper namespace="admin">
 
-<!-- 쿼리문작성 -->
+    <!-- 모든 상품 가져오기 -->
+     <select id="getGoodsList" resultType="com.javaex.vo.GoodsVo">
+     <![CDATA[
+        SELECT gno, price, name, descript, imgSize, imgPath, imgName
+        FROM goods
+     ]]>
+    </select>
 
-	
+    <!-- 상품 추가 -->
+     <insert id="save" parameterType="com.javaex.vo.GoodsVo">
+     <![CDATA[
+        INSERT INTO goods (name, price, descript, imgSize, imgPath, imgName)
+        VALUES (#{name}, #{price}, #{descript}, #{imgSize}, #{imgPath}, #{imgName})
+     ]]>
+    </insert>
+    
+    <!-- 회원정보 가져오기  -->
+    
+    
 
-
-
-
-
-
-
-
-
-
-
-
+    
 </mapper>

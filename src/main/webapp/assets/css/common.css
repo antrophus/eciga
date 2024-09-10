@@ -170,8 +170,10 @@ img:hover {
 
 /* 푸터 스타일 */
 #footer {
-	margin-top:50px;
-	width: 1200px;
+	margin-top: 50px;
+	
+ 	width: 1200px;
+    
     background-color: #e7eaed;
     /* 기존 배경색 유지 */
     padding: 20px 20px;

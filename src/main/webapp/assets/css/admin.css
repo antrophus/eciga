@@ -353,3 +353,21 @@ select#status {
 	height: 16px;
 	margin-right: 5px;
 }
+
+/* 배송 상태 - 기본 상태 */
+.status-default {
+    color: black;
+    font-weight: normal;
+}
+
+/* 확인 요망 (빨간색 굵은 글씨) */
+#pending {
+    color: red;
+    font-weight: bold;
+}
+
+/* 배송 완료 (연녹색 글씨) */
+#completed {
+    color: lightgreen;
+    font-weight: normal;
+}

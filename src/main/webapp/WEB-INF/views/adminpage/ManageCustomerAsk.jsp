@@ -20,10 +20,10 @@
 		<div id="nav">
 			<h1>관리자페이지</h1>
 			<ul class="clearfix">
-				<li><a href="./mannageGoods.html">제품 등록/관리</a></li>
-				<li><a href="./mannageUser.html">회원관리</a></li>
-				<li><a href="./mannageOrder.html">배송관리</a></li>
-				<li><a href="./manageCustomer.html">1:1 고객문의</a></li>
+				<li><a href="${pageContext.request.contextPath}/admin/goods">제품 등록/관리</a></li>
+				<li><a href="${pageContext.request.contextPath}/admin/user">회원관리</a></li>
+				<li><a href="${pageContext.request.contextPath}/admin/order">배송관리</a></li>
+				<li><a href="${pageContext.request.contextPath}/admin/customer">1:1 고객문의</a></li>
 			</ul>
 		</div>
 

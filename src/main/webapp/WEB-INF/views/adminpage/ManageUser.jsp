@@ -21,24 +21,24 @@
 		<div id="nav">
 			<h1>관리자페이지</h1>
 			<ul class="clearfix">
-				<li><a href="./mannageGoods.html">제품 등록/관리</a></li>
-				<li><a href="./mannageUser.html">회원관리</a></li>
-				<li><a href="./mannageOrder.html">배송관리</a></li>
-				<li><a href="./manageCustomer.html">1:1 고객문의</a></li>
+				<li><a href="${pageContext.request.contextPath}/admin/goods">제품 등록/관리</a></li>
+				<li><a href="${pageContext.request.contextPath}/admin/user">회원관리</a></li>
+				<li><a href="${pageContext.request.contextPath}/admin/order">배송관리</a></li>
+				<li><a href="${pageContext.request.contextPath}/admin/customer">1:1 고객문의</a></li>
 			</ul>
 		</div>
 
 		<div id="board">
 			<div id="list">
-				<form action="" method="">
+				<form action="${pageContext.request.contextPath}/admin/user" method="get">
 					<div class="form-group_text-right">
 						<select class="form-control" name="status">
 							<option value="" selected="selected">회원상태</option>
-							<option value="active">활성</option>
-							<option value="sleep">휴면</option>
-							<option value="ask">요청</option>
-							<option value="quit">탈퇴</option>
-						</select> <input type="text" id="search_text" name="search_text" class="form-control" placeholder="검색어">
+							<option value="1">활성</option>
+							<option value="2">휴면</option>
+							<option value="3">탈퇴 요청</option>
+							<option value="0">탈퇴</option>
+						</select> <input type="text" id="search_text" name="keyword" class="form-control" placeholder="검색어">
 						<button type="submit" class="search-btn">검색</button>
 					</div>
 				</form>
@@ -58,87 +58,53 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>123</td>
-							<td class="text-left"><a href="#">정우성</a></td>
-							<td>jws</td>
-							<td>010-2222-3333</td>
-							<td>1973-04-22</td>
-							<td>서울시 관악구 사당동</td>
-							<td>****</td>
-							<td>정상</td>
-							<td>일반회원</td>
-							<td><a href="">[수정]</a></td>
-						</tr>
-						<tr>
-							<td>123</td>
-							<td class="text-left"><a href="#">정우성</a></td>
-							<td>jws</td>
-							<td>010-2222-3333</td>
-							<td>1973-04-22</td>
-							<td>서울시 관악구 사당동</td>
-							<td>****</td>
-							<td>정상</td>
-							<td>일반회원</td>
-							<td><a href="">[수정]</a></td>
-						</tr>
-						<tr>
-							<td>123</td>
-							<td class="text-left"><a href="#">정우성</a></td>
-							<td>jws</td>
-							<td>010-2222-3333</td>
-							<td>1973-04-22</td>
-							<td>서울시 관악구 사당동</td>
-							<td>****</td>
-							<td>정상</td>
-							<td>일반회원</td>
-							<td><a href="">[수정]</a></td>
-						</tr>
-						<tr>
-							<td>123</td>
-							<td class="text-left"><a href="#">정우성</a></td>
-							<td>jws</td>
-							<td>010-2222-3333</td>
-							<td>1973-04-22</td>
-							<td>서울시 관악구 사당동</td>
-							<td>****</td>
-							<td>정상</td>
-							<td>일반회원</td>
-							<td><a href="">[수정]</a></td>
-						</tr>
-						<tr>
-							<td>123</td>
-							<td class="text-left"><a href="#">정우성</a></td>
-							<td>jws</td>
-							<td>010-2222-3333</td>
-							<td>1973-04-22</td>
-							<td>서울시 관악구 사당동</td>
-							<td>****</td>
-							<td>정상</td>
-							<td>일반회원</td>
-							<td><a href="">[수정]</a></td>
-						</tr>
+						<c:forEach items="${pMap.userList}" var="user">
+							<tr>
+								<td>${user.uno}</td>
+								<td>${user.name}</td>
+								<td>${user.uid}</td>
+								<td>${user.hp}</td>
+								<td>${user.birth}</td>
+								<td>${user.address}</td>
+								<td>****</td>
+								<!-- 비밀번호는 숨김 처리 -->
+								<td><c:choose>
+										<c:when test="${user.status == 1}">활성</c:when>
+										<c:when test="${user.status == 2}">휴면</c:when>
+										<c:when test="${user.status == 3}">탈퇴 요청</c:when>
+										<c:when test="${user.status == 0}">탈퇴</c:when>
+									</c:choose></td>
+								<td><c:choose>
+										<c:when test="${user.role == 0}">관리자</c:when>
+										<c:otherwise>일반회원</c:otherwise>
+									</c:choose></td>
+								<td><a href="#">[수정]</a></td>
+							</tr>
+						</c:forEach>
+
 					</tbody>
 				</table>
 
 				<div id="paging">
 					<ul>
-						<li><a href="">◀</a></li>
-						<li><a href="">1</a></li>
-						<li><a href="">2</a></li>
-						<li><a href="">3</a></li>
-						<li><a href="">4</a></li>
-						<li class="active"><a href="">5</a></li>
-						<li><a href="">6</a></li>
-						<li><a href="">7</a></li>
-						<li><a href="">8</a></li>
-						<li><a href="">9</a></li>
-						<li><a href="">10</a></li>
-						<li><a href="">▶</a></li>
+						<c:if test="${pMap.prev}">
+							<li>
+								<a href="${pageContext.request.contextPath}/admin/user?crtpage=${pMap.startPageBtnNo-1}&keyword=${param.keyword}&status=${param.status}">◀</a>
+							</li>
+						</c:if>
+
+						<c:forEach begin="${pMap.startPageBtnNo}" end="${pMap.endPageBtnNo}" var="page">
+							<li class="${pMap.crtPage == page ? 'active' : ''}">
+								<a href="${pageContext.request.contextPath}/admin/user?crtpage=${page}&keyword=${param.keyword}&status=${param.status}">${page}</a>
+							</li>
+						</c:forEach>
+
+						<c:if test="${pMap.next}">
+							<li>
+								<a href="${pageContext.request.contextPath}/admin/user?crtpage=${pMap.endPageBtnNo+1}&keyword=${param.keyword}&status=${param.status}">▶</a>
+							</li>
+						</c:if>
 					</ul>
-
-
-					<div class="clear"></div>
 				</div>
 				<!-- <a id="btn_write" href="">글쓰기</a> -->
 			</div>

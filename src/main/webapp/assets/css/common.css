@@ -1,13 +1,9 @@
 @charset "UTF-8";
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-@import url('https://fonts.cdnfonts.com/css/gotham');
 
 /*레이아웃*/
 #wrap {
     margin: 0 auto;
     width: 1200px;
-    
 }
 
 #wrap #contents {
@@ -34,13 +30,6 @@
     border-bottom: 1px solid #ddd;
 }
 
-#wrap #footer {
-    padding: 15px 0;
-    ;
-    background-color: #e7eaed;
-    text-align: center;
-}
-
 /* 헤더 */
 #header {
     width: 1200px;
@@ -54,7 +43,6 @@
 .contents #aside{
     width: 400px;
     float: left;
-
 }
 
 #header h1 {
@@ -83,7 +71,7 @@
     /* 이 요소도 줄어들지 않도록 설정 */
     margin: 0;
     float: right;
-    margin: 20px 20px 0 0;
+    margin-top: 20px;
 }
 
 #header .header-inner img {
@@ -112,26 +100,10 @@
     font-size: 20px;
 }
 
-/* 네비게이션 (상단 메뉴) 
-#nav {
-    margin-top: 30px;
-    position: fixed;
-    네비게이션도 고정되도록 설정 
-    top: 70px;
-    헤더 바로 아래에 오도록 설정 
-    width: 90%;
-    전체 너비 
-    z-index: 980;
-    헤더보다 아래 
-    background-color: #fff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    네비게이션 하단에 그림자 
-} */
 #nav {
     margin-top: 85px;;
     z-index: 980; /* 헤더보다 아래에 표시 */
     background-color: #fff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* 네비게이션 하단 그림자 */
     padding: 20px 0 10px 0;
 }
 
@@ -168,11 +140,16 @@
 #nav ul li a:hover {
     color: #000;
 }
-#btnAddgoodsBox {
-    padding: 30px 80px 0 0;
 
-    text-align: right;
+img {
+    opacity: 1;
+    transition: opavity 0.3s;
 }
+
+img:hover {
+    opacity:0.7;
+}
+
 
 /*메인페이지 컨텐츠*/
 #contents #profile {
@@ -193,6 +170,8 @@
 
 /* 푸터 스타일 */
 #footer {
+	margin-top:50px;
+	width: 1200px;
     background-color: #e7eaed;
     /* 기존 배경색 유지 */
     padding: 20px 20px;
@@ -205,6 +184,7 @@
     display: flex;
     /* 좌우로 정렬 */
     justify-content: space-between;
+    bottom: 0;
 }
 
 #footer_l {
@@ -219,7 +199,7 @@
 }
 
 #footer p {
-    padding: 0px 50px;
+    padding: 0px 35px;
     margin: 5px 0;
     /* 문단 간 간격 */
     line-height: 1.6;

@@ -89,3 +89,81 @@ and password = '222'
 
 
 
+
+
+
+#######################################################
+####################### eciga_db ######################
+###################### board table ####################
+
+
+use eciga_db;
+
+drop table board;
+
+create table board (
+	bno  	 		 integer 		  primary key     auto_increment,
+    uid 	 		 varchar(20),
+    title	    	 varchar(100),
+    content 		 varchar(3000),
+    reg_date		 datetime,
+    ans_status		 int,
+    answer	  	 	 varchar(200),
+    ans_date		 datetime,
+    
+	constraint board_fk foreign key (uid) 
+    references Users(uid)
+);
+
+
+
+-- 조회
+select * from board;
+
+select  bno,
+		uid,
+		title,
+        content,
+        reg_date,
+        ans_status,
+        answer,
+        ans_date
+from board
+;
+
+
+-- 문의 등록 (유저)
+insert into board ( bno, uid, title, content, reg_date, ans_status )
+values( null, '111', 'title1', 'content1', now(), 0 )
+;
+
+insert into board ( bno, uid, title, content, reg_date, ans_status )
+values( null, '222', 'title2', 'content2', now(), 0 )
+;
+
+
+-- 답변 등록 (관리자)
+update board 
+set ans_status = 1, 
+    answer = 'answer1',
+    ans_date = now()
+ where bno = 1
+;
+
+
+-- 문의 조회 (답변 미완)
+select  bno,
+		uid,
+		title,
+        content,
+        reg_date,
+        ans_status,
+        answer,
+        ans_date
+from board
+
+where ans_status = 0
+;
+
+
+

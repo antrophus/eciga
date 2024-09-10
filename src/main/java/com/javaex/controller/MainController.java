@@ -9,10 +9,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.javaex.service.GoodsService;
 import com.javaex.vo.CartVo;
 import com.javaex.vo.GoodsVo;
+import com.javaex.vo.UserVo;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class MainController {
@@ -52,36 +56,64 @@ public class MainController {
 		//return "/main/read";
 	}
 	
-	
+	@ResponseBody
 	@RequestMapping ( value="/insertCart", method={RequestMethod.GET, RequestMethod.POST} )
-	public void insertCart ( @ModelAttribute CartVo cartVo ) {
-		
+	public int insertCart ( @ModelAttribute CartVo cartVo, HttpSession session ) {
 		System.out.println("MainController.insertCart()");
+
+		//UserVo authoUser = (UserVo)session.getAttribute("authUser");
+		//int uNo = authoUser.getuNo();
+		
+		int uNo= 2;
+		cartVo.setuNo(uNo);
+		System.out.println(cartVo);
 			
 		int count = goodsService.exeInsertCart(cartVo);
 		
-		System.out.println("장바구니담기 : " + count);
+		return count;
 		
 	}
 	
 	
 	/* 카트에 내 장바구니 목록 뿌리기 */
 	@RequestMapping ( value="/cart", method={RequestMethod.GET, RequestMethod.POST} )
-	public String cart ( @RequestParam(value="uid") int uid, Model model ) {
+	public String cart ( @RequestParam(value="uno") int uno, Model model ) {
 		
 		System.out.println("MainController.cart()");
 		
-		List<CartVo> cartVo = goodsService.exeCartList(uid);
+		List<CartVo> cartList = goodsService.exeCartList(uno);
 		
-		System.out.println(uid + "인 " + cartVo);
+		System.out.println(uno + " 유저의 장바구니 list " + cartList);
 		
-		model.addAttribute(cartVo);
+		model.addAttribute("cartList", cartList);
 			
 		
 		return "/goods/GoodsCart";
 		
 	}
 	
+	
+	/* 주문하기 */
+	@RequestMapping ( value="/pay", method={RequestMethod.GET, RequestMethod.POST} )
+	public String payment ( @RequestParam(value="uno") int uno, Model model ) {
+		
+		System.out.println("MainController.payment()");
+		
+		List<CartVo> cartList = goodsService.exeCartList(uno);
+		
+		System.out.println(uno + " 유저의 장바구니 list " + cartList);
+		
+		model.addAttribute("cartList", cartList);
+			
+		
+		return "/kart/payment";
+		
+	}
+	
+	
+	
+	
+
 	
 	
 	
@@ -120,13 +152,7 @@ public class MainController {
 	
 
 	
-	@RequestMapping(value="/payment", method= {RequestMethod.GET, RequestMethod.POST})
-	public String payment() {
-		
-		System.out.println("MainController.payment()");
-		
-		return "/kart/payment";
-	}
+
 	
 	
 	@RequestMapping(value="/customer", method= {RequestMethod.GET, RequestMethod.POST})

@@ -11,7 +11,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #fff;
 }
 
 .container {
@@ -84,7 +84,7 @@ textarea {
 .quantity-control button {
     width: 30px;
     height: 30px;
-    background-color: #79b30b;
+    background-color: aqua;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -93,13 +93,13 @@ textarea {
 }
 
 .quantity-control button:hover {
-    background-color: #6a9a08;
+    background-color: aqua;
 }
 
 button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #79b30b;
+    background-color: aqua;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -108,7 +108,7 @@ button {
 }
 
 button:hover {
-    background-color: #6a9a08;
+    background-color: aqua;
 }
 
 .summary-item {
@@ -148,3 +148,5 @@ button:hover {
     font-size: 16px;
     color: #333;
 }
+
+

@@ -35,9 +35,8 @@
 
 		<![CDATA[
 		
-		
-			
-			SELECT  l.fno gNo,
+			SELECT  l.fno,
+					g.gno,
 					g.name,
         			g.price,
        			 	c.color,
@@ -59,8 +58,8 @@
 	
 		<![CDATA[
 
-			insert into cart 
-			values ( null, #{uId}, #{fNo}, #{count} )
+			insert into cart ( uNo, fno, count )
+			values ( #{uNo}, #{fNo}, #{count} )
 
 		]]>
 
@@ -73,13 +72,26 @@
 
 		<![CDATA[
 
-			SELECT  CNO,
-					UID,
-					FNO,
-					COUNT
+			SELECT  c.cno,
+					c.uno,
+        			c.fno,
+       			 	c.count,
+        			lg.gNo gNo,
+        			lg.savename saveName,
+        			lg.name,
+        			lg.price
        			 	
-			FROM CART
-			WHERE UID = #{uid}
+			FROM cart c
+			
+			JOIN ( SELECT   l.fno fno,
+			   				l.gno,
+			  				g.name,
+			  				g.price,
+              			 	g.saveName
+				   FROM listgoods l
+				   JOIN goods g ON l.gno = g.gno) lg ON lg.fno = c.fno
+					
+			WHERE UNO = #{uno}
 			
 
 		]]>

@@ -12,7 +12,8 @@
 <link href="${pageContext.request.contextPath}/assets/css/reset.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/assets/css/common.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/assets/css/gallery.css" rel="stylesheet">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/payment.css">
+<link href="${pageContext.request.contextPath}/assets/css/payment.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/assets/css/goods.css" rel="stylesheet">
 <!-- 서버  통신 연결용 -->
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
@@ -84,9 +85,9 @@
 						<div class="payment_section">
 							<h2>결제방식</h2>
 							<ul>
-								<li><input type="radio" id="creditCard" name="paymentWay" value="01" required checked> <label for="creditCard"><span
-										class="radio_btn"></span>신용/체크카드</label></li>
-								<li><input type="radio" id="payBank" required name="paymentWay" value="02"> <label for="payBank"><span class="radio_btn"></span>무통장입금</label>
+								<li>신용/체크카드<input type="radio" id="creditCard" name="paymentWay" value="01" required checked> <label for="creditCard"><span
+										class="radio_btn"></span></label></li>
+								<li>무통장입금<input type="radio" id="payBank" required name="paymentWay" value="02"> <label for="payBank"><span class="radio_btn"></span></label>
 								</li>
 							</ul>
 						</div>
@@ -99,26 +100,41 @@
 							<!--<label for="item">상품 선택:</label>-->
 
 							<ul id="viewArea">
-								<li>
+							
+								<c:forEach items="${requestScope.cartList}" var="cartVo">
+								
+									<li>
 
 									<div class="viewTop">
 										<a href="javascript:void(0);" class="del_view"><i class="xi-close"></i></a>
 									</div>
+									
+									
 									<div class="view">
 										<div class="itemimg">
-											<img src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1580888106/noticon/owcvyw4dggdylen2ql5w.gif" alt="하이브리드 3.0 카고컨테이너 에디션">
+											<img src="${pageContext.request.contextPath}/assets/img/${cartVo.saveName}" alt="하이브리드 3.0 카고컨테이너 에디션">
 										</div>
 										<div class="view_txt">
-											<div class="">하이브리드 3.0 카고컨테이너 에디션</div>
-											<div class="color">색상 : black</div>
+											<div class="">${cartVo.name}</div>
 										</div>
-										<div class="view_price">99,000원</div>
+										<div class="view_price">${cartVo.price}</div>
 									</div>
 									<div class="view_cnt">
 										<div>수량</div>
-										<div>1</div>
+										<div>${cartVo.count}</div>
 									</div>
 								</li>
+								
+								
+								</c:forEach>
+							
+								
+							</ul>
+							
+							
+							
+								
+								<!--
 								<li>
 									<div class="viewTop">
 										<a href="javascript:void(0);" class="del_view"><i class="xi-close"></i></a>
@@ -159,12 +175,16 @@
 								</li>
 							</ul>
 							<button type="button" id="viewMore">주문 내역 더보기</button>
-							<!--<label for="quantity">수량:</label>
+							<label for="quantity">수량:</label>
                         <div class="quantity-control">
                             <button type="button" id="decrement">-</button>
                             <input type="number" id="quantity" name="quantity" min="1" value="1">
                             <button type="button" id="increment">+</button>
                         </div>-->
+                        
+                        
+                        
+                        
 
 						</div>
 						<div class="btn_area">
@@ -181,6 +201,12 @@
 							</div>
 							<button>주문하기</button>
 						</div>
+						
+						
+						
+						
+						
+						
 					</section>
 
 				</main>

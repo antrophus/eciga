@@ -59,11 +59,11 @@ public class GoodsService {
 	}
 	
 	
-	public List<CartVo> exeCartList ( int uid ) {
+	public List<CartVo> exeCartList ( int uno ) {
 		
 		System.out.println("GoodsService.exeCartList");
 		
-		List<CartVo> cartVo = goodsDao.cartList(uid);
+		List<CartVo> cartVo = goodsDao.cartList(uno);
 		
 		return cartVo;
 	}

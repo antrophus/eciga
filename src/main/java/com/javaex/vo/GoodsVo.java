@@ -1,28 +1,26 @@
 package com.javaex.vo;
 
 public class GoodsVo {
-	
-	
+
+	private int fNo;
 	private int gNo;
-	private String name;  //제품이름
+	private String name; // 제품이름
 	private int price;
-	private String color;    //제품 색상 넘버
-	
+	private String color; // 제품 색상 넘버
+
 	private String filePath;
 	private String orgName;
 	private String saveName;
 	private int fileSize;
-	
-	
-	
-	
+
 	public GoodsVo() {
 		super();
 	}
 
-	public GoodsVo(int gNo, String name, int price, String color, String filePath, String orgName, String saveName,
-			int fileSize) {
+	public GoodsVo(int fNo, int gNo, String name, int price, String color, String filePath, String orgName,
+			String saveName, int fileSize) {
 		super();
+		this.fNo = fNo;
 		this.gNo = gNo;
 		this.name = name;
 		this.price = price;
@@ -32,10 +30,14 @@ public class GoodsVo {
 		this.saveName = saveName;
 		this.fileSize = fileSize;
 	}
-	
-	
-	
-	
+
+	public int getfNo() {
+		return fNo;
+	}
+
+	public void setfNo(int fNo) {
+		this.fNo = fNo;
+	}
 
 	public int getgNo() {
 		return gNo;
@@ -101,29 +103,11 @@ public class GoodsVo {
 		this.fileSize = fileSize;
 	}
 
-	
-	
-	
-	
 	@Override
 	public String toString() {
-		return "GoodsVo [gNo=" + gNo + ", name=" + name + ", price=" + price + ", color=" + color + ", filePath="
-				+ filePath + ", orgName=" + orgName + ", saveName=" + saveName + ", fileSize=" + fileSize + "]";
+		return "GoodsVo [fNo=" + fNo + ", gNo=" + gNo + ", name=" + name + ", price=" + price + ", color=" + color
+				+ ", filePath=" + filePath + ", orgName=" + orgName + ", saveName=" + saveName + ", fileSize="
+				+ fileSize + "]";
 	}
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }

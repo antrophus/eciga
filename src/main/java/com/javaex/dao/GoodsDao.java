@@ -51,11 +51,11 @@ public class GoodsDao {
 	
 	
 	
-	public List<CartVo> cartList (int uid) {
+	public List<CartVo> cartList (int uno) {
 		
 		System.out.println("GoodsDao.cartList");
 		
-		List<CartVo> cartVo = sqlSession.selectList("goods.selectCartList", uid);
+		List<CartVo> cartVo = sqlSession.selectList("goods.selectCartList", uno);
 		
 		return cartVo;
 	}

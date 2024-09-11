@@ -38,4 +38,6 @@ public class AdminDao {
     public void delete(int no) {
         sqlSession.delete("admin.delete", no);
     }
+    
+    
 }

@@ -67,16 +67,20 @@ public class AdminController {
         return "adminpage/ManageCustomerAsk";  // JSP 파일로 이동
     }
 
- // 문의 답변 등록 처리
+    // 문의 답변 등록 처리
+    @ResponseBody
     @RequestMapping(value = "/customer/answer", method = RequestMethod.POST)
-    public String answerInquiry(@ModelAttribute CustomerAskVo inquiry) {
-        if (inquiry.getInquiryNo() == 0) {
-            throw new IllegalArgumentException("문의 번호가 잘못되었습니다.");  // inquiryNo가 0일 때 오류 처리
-        }
-        customerAskService.updateInquiryAnswer(inquiry);  // 답변 업데이트 처리
-        return "redirect:/admin/customer/detail?inquiryNo=" + inquiry.getInquiryNo(); // 다시 상세 페이지로 리다이렉트
+    public boolean answerInquiry(@ModelAttribute CustomerAskVo customerAskVo) {
+        System.out.println(customerAskVo);
+        // 서버로 넘어온 문의 정보 로그 출력
+        System.out.println("서버로 보낼 정보: " + customerAskVo);
+        
+        boolean isUpdated = customerAskService.updateInquiryAnswer(customerAskVo);
+        
+        return isUpdated ;
+        
     }
-
+    
 
    /* 상품 목록 페이지 */
    @RequestMapping(value = "/goods", method = { RequestMethod.GET, RequestMethod.POST })

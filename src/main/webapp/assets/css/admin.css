@@ -208,6 +208,15 @@ table.userMng th:nth-child(2), /* 두 번째 열의 헤더 */ table.userMng td:n
 }
 
 /*질문/답변*/
+#MannagerAnswerArea {
+	height: 320px;
+	padding: 20px;
+	margin: 27px;
+	font-size: 25px;
+	border-top: 2px dotted #aceeff;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
 .qna-container {
 	width: 100%; /* 전체 화면의 80% 너비로 설정 */
 	padding: 20px;
@@ -356,18 +365,18 @@ select#status {
 
 /* 배송 상태 - 기본 상태 */
 .status-default {
-    color: black;
-    font-weight: normal;
+	color: black;
+	font-weight: normal;
 }
 
 /* 확인 요망 (빨간색 굵은 글씨) */
 #pending {
-    color: red;
-    font-weight: bold;
+	color: red;
+	font-weight: bold;
 }
 
 /* 배송 완료 (연녹색 글씨) */
 #completed {
-    color: lightgreen;
-    font-weight: normal;
+	color: lightgreen;
+	font-weight: normal;
 }

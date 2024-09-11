@@ -19,7 +19,7 @@ public class CustomerAskService {
     /* 1:1 고객 문의 게시판 리스트 */
     public Map<String, Object> getInquiryList(int crtPage, String keyword, String status, String startDate, String endDate) {
        //한페이지에 10개씩 리스트 출력
-        int listCnt = 10;
+        int listCnt = 30;
         //시작 줄 번호
         int startRowNo = (crtPage - 1) * listCnt;
 
@@ -57,10 +57,21 @@ public class CustomerAskService {
     public CustomerAskVo getInquiryDetail(int inquiryNo) {
         return customerAskDao.selectInquiryDetail(inquiryNo);
     }
+    
+ // 특정 문의 번호로 답변 내용 조회
+    public CustomerAskVo getInquiryByNo(int inquiryNo) {
+        return customerAskDao.selectInquiryByNo(inquiryNo);
+    }
+
 
     // 문의 답변 업데이트
-    public void updateInquiryAnswer(CustomerAskVo inquiry) {
-        customerAskDao.updateInquiryAnswer(inquiry);
+    public boolean updateInquiryAnswer(CustomerAskVo customerAskVo) {
+        int updatedRows = customerAskDao.updateInquiryAnswer(customerAskVo);
+        
+        // 업데이트된 행이 1 이상일 경우 성공 처리
+        return updatedRows > 0;
     }
+
+    
     
 }

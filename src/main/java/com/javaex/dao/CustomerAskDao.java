@@ -29,9 +29,15 @@ public class CustomerAskDao {
     public CustomerAskVo selectInquiryDetail(int inquiryNo) {
         return sqlSession.selectOne("customerAsk.selectInquiryDetail", inquiryNo);
     }
-
+    
     // 문의 답변 업데이트
-    public void updateInquiryAnswer(CustomerAskVo inquiry) {
-        sqlSession.update("customerAsk.updateInquiryAnswer", inquiry);
+    public int updateInquiryAnswer(CustomerAskVo inquiry) {
+        return sqlSession.update("customerAsk.updateInquiryAnswer", inquiry);
     }
+    
+    // 문의 답변 내용 확인
+    public CustomerAskVo selectInquiryByNo(int inquiryNo) {
+        return sqlSession.selectOne("customerAsk.selectInquiryByNo", inquiryNo);
+    }
+    
 }

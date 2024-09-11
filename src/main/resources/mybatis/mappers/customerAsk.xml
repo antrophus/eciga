@@ -38,7 +38,15 @@
    <!-- 문의 내용 답변 -->
    <select id="selectInquiryDetail" resultType="com.javaex.vo.CustomerAskVo">
     <![CDATA[
-       SELECT ci.inquiry_no as inquiryNo, ci.title, ci.content, ci.reg_date as regDate, u.hp, ci.status, ci.answer_date as answerDate, u.name AS userName
+       SELECT 	ci.inquiry_no as inquiryNo, 
+       			ci.title, 
+       			ci.content, 
+       			ci.reg_date as regDate, 
+       			u.hp, 
+       			ci.status, 
+       			ci.answer, 
+       			ci.answer_date as answerDate, 
+       			u.name AS userName
        FROM customer_ask ci
        JOIN users u ON ci.user_id = u.uno
        WHERE ci.inquiry_no = #{inquiryNo}
@@ -53,6 +61,19 @@
         WHERE inquiry_no = #{inquiryNo}
     ]]>
     </update>
+    
+    <select id="selectInquiryByNo" resultType="com.javaex.vo.CustomerAskVo">
+    <![CDATA[
+       SELECT   ci.inquiry_no as inquiryNo, 
+       			ci.status, 
+       			ci.answer, 
+       			ci.answer_date as answerDate
+       FROM customer_ask ci
+       JOIN users u ON ci.user_id = u.uno
+       WHERE ci.inquiry_no = #{inquiryNo}
+    ]]>
+	</select>
+    
 
 	
 	

@@ -13,11 +13,11 @@
 
 		<![CDATA[
 
-			SELECT  l.fno gNo,
+			SELECT  l.fno gno,
 					g.name,
         			g.price,
        			 	c.color,
-       			 	g.savename saveName
+       			 	g.imgname imgName
        			 	
 			FROM listgoods l
 			JOIN goods g ON l.gno = g.gno
@@ -40,7 +40,7 @@
 					g.name,
         			g.price,
        			 	c.color,
-       			 	g.savename saveName
+       			 	g.imgname imgName
        			 	
 			FROM listgoods l
 			JOIN goods g ON l.gno = g.gno
@@ -58,7 +58,7 @@
 	
 		<![CDATA[
 
-			insert into cart ( uNo, fno, count )
+			insert into cart ( uNo, fNo, count )
 			values ( #{uNo}, #{fNo}, #{count} )
 
 		]]>
@@ -76,8 +76,8 @@
 					c.uno,
         			c.fno,
        			 	c.count,
-        			lg.gNo gNo,
-        			lg.savename saveName,
+        			lg.gno gno,
+        			lg.imgname imgName,
         			lg.name,
         			lg.price
        			 	
@@ -87,11 +87,11 @@
 			   				l.gno,
 			  				g.name,
 			  				g.price,
-              			 	g.saveName
+              			 	g.imgname
 				   FROM listgoods l
 				   JOIN goods g ON l.gno = g.gno) lg ON lg.fno = c.fno
 					
-			WHERE UNO = #{uno}
+			WHERE UNO = #{uNo}
 			
 
 		]]>

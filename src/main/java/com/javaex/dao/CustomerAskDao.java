@@ -15,11 +15,23 @@ public class CustomerAskDao {
     @Autowired
     private SqlSession sqlSession;
 
+ // 문의 리스트 출력
     public List<CustomerAskVo> selectInquiryList(Map<String, Object> paramMap) {
         return sqlSession.selectList("customerAsk.selectInquiryList", paramMap);
     }
 
+    // 총 문의 수
     public int getTotalCount(Map<String, Object> paramMap) {
         return sqlSession.selectOne("customerAsk.getTotalCount", paramMap);
+    }
+
+    // 문의 상세 조회
+    public CustomerAskVo selectInquiryDetail(int inquiryNo) {
+        return sqlSession.selectOne("customerAsk.selectInquiryDetail", inquiryNo);
+    }
+
+    // 문의 답변 업데이트
+    public void updateInquiryAnswer(CustomerAskVo inquiry) {
+        sqlSession.update("customerAsk.updateInquiryAnswer", inquiry);
     }
 }

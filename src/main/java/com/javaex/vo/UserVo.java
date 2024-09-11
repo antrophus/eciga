@@ -10,25 +10,30 @@ public class UserVo {
 	private String hp;
     private String address;
     private int role;
+    private String birth;
+    private int status;
 
     public UserVo() {
 		super();
 	}
 
-	public UserVo(int uno, String name, String uid, String password, int ssn, String hp, String address, int role) {
+	public UserVo(int uno, String name, String uid, String password, int ssn, String hp, String address, int role,
+			String birth, int status) {
 		super();
 		this.uno = uno;
-        this.name = name;
+		this.name = name;
 		this.uid = uid;
 		this.password = password;
-        this.ssn = ssn;
+		this.ssn = ssn;
 		this.hp = hp;
-        this.address = address;
-        this.role = role;
+		this.address = address;
+		this.role = role;
+		this.birth = birth;
+		this.status = status;
 	}
 
 	public int getUno() {
-		return this.uno;
+		return uno;
 	}
 
 	public void setUno(int uno) {
@@ -36,7 +41,7 @@ public class UserVo {
 	}
 
 	public String getName() {
-		return this.name;
+		return name;
 	}
 
 	public void setName(String name) {
@@ -44,7 +49,7 @@ public class UserVo {
 	}
 
 	public String getUid() {
-		return this.uid;
+		return uid;
 	}
 
 	public void setUid(String uid) {
@@ -52,7 +57,7 @@ public class UserVo {
 	}
 
 	public String getPassword() {
-		return this.password;
+		return password;
 	}
 
 	public void setPassword(String password) {
@@ -60,7 +65,7 @@ public class UserVo {
 	}
 
 	public int getSsn() {
-		return this.ssn;
+		return ssn;
 	}
 
 	public void setSsn(int ssn) {
@@ -68,7 +73,7 @@ public class UserVo {
 	}
 
 	public String getHp() {
-		return this.hp;
+		return hp;
 	}
 
 	public void setHp(String hp) {
@@ -76,15 +81,14 @@ public class UserVo {
 	}
 
 	public String getAddress() {
-		return this.address;
+		return address;
 	}
 
 	public void setAddress(String address) {
 		this.address = address;
 	}
 
-	
-    public int getRole() {
+	public int getRole() {
 		return role;
 	}
 
@@ -92,12 +96,34 @@ public class UserVo {
 		this.role = role;
 	}
 
+	public String getBirth() {
+		return birth;
+	}
+
+	public void setBirth(String birth) {
+		this.birth = birth;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
 	@Override
 	public String toString() {
 		return "UserVo [uno=" + uno + ", name=" + name + ", uid=" + uid + ", password=" + password + ", ssn=" + ssn
-				+ ", hp=" + hp + ", address=" + address + ", role=" + role + "]";
+				+ ", hp=" + hp + ", address=" + address + ", role=" + role + ", birth=" + birth + ", status=" + status
+				+ "]";
 	}
 
+
+
+
+    
+    
 
 
 }

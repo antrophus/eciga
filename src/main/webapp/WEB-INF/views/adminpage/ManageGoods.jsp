@@ -47,6 +47,7 @@
 				<c:forEach var="product" items="${goodsList}">
 					<div class="product-item">
 						<img src="${pageContext.request.contextPath}/upload/${product.imgName}" alt="제품 이미지" class="product-image">
+						<!-- <img src="${pageContext.request.contextPath}/assets/img/${product.imgName}" alt="제품 이미지" class="product-image"> -->
 						<!-- imgPath로 수정 -->
 						<p>${product.name}</p>
 						<p>${product.price} 원</p>

@@ -39,7 +39,7 @@
 
 				<div class="cart-item">
 					<!-- <img src="${pageContext.request.contextPath}/assets/img/hybrid30cce/hybrid30cce_khaki.jpeg" alt="제품 이미지" class="product-image"> -->
-					<img src="${pageContext.request.contextPath}/assets/img/${cartVo.saveName}" alt="제품 이미지" class="product-image">
+					<img src="${pageContext.request.contextPath}/upload/${cartVo.imgName}" alt="제품 이미지" class="product-image">
 					<div class="item-details">
 						<p class="product-name">${cartVo.name}</p>
 
@@ -66,26 +66,6 @@
 
 			</c:forEach>
 
-
-			<!-- 
-            <div class="cart-item">
-                <img src="${pageContext.request.contextPath}/assets/img/hybrid30cce/hybrid30cce_khaki.jpeg" alt="제품 이미지" class="product-image">
-                <div class="item-details">
-                    <p class="product-name">하이브리드 3.0 카고컨테이너 에디션</p>
-                    <p class="product-color">색상: 샌드 베이지</p>
-                    <div class="quantity-selector">
-                        <button class="quantity-btn">-</button>
-                        <span class="quantity-value">1</span>
-                        <button class="quantity-btn">+</button>
-                    </div>
-                </div>
-                <div class="price-box">
-                    <!-- 기본 금액을 서버에서 받아서 사용 -->
-			<!--
-                    <p class="product-price"><fmt:formatNumber value="${goodsPrice}" type="number" />원</p>
-                </div>
-            </div>
-            -->
 
 
 

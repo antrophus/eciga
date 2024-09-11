@@ -15,9 +15,12 @@ public class CustomerAskService {
 
     @Autowired
     private CustomerAskDao customerAskDao;
-
+    
+    /* 1:1 고객 문의 게시판 리스트 */
     public Map<String, Object> getInquiryList(int crtPage, String keyword, String status, String startDate, String endDate) {
+       //한페이지에 10개씩 리스트 출력
         int listCnt = 10;
+        //시작 줄 번호
         int startRowNo = (crtPage - 1) * listCnt;
 
         Map<String, Object> paramMap = new HashMap<>();
@@ -44,7 +47,20 @@ public class CustomerAskService {
         pMap.put("startPageBtnNo", startPageBtnNo);
         pMap.put("endPageBtnNo", endPageBtnNo);
         pMap.put("crtPage", crtPage);
+        
+        
 
         return pMap;
     }
+    
+ // 문의 상세 조회
+    public CustomerAskVo getInquiryDetail(int inquiryNo) {
+        return customerAskDao.selectInquiryDetail(inquiryNo);
+    }
+
+    // 문의 답변 업데이트
+    public void updateInquiryAnswer(CustomerAskVo inquiry) {
+        customerAskDao.updateInquiryAnswer(inquiry);
+    }
+    
 }

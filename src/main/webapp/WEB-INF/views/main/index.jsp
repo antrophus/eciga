@@ -97,32 +97,16 @@
 								<li>
 									<div class="view">
 										<div class="itemimg">
-											<a href="${pageContext.request.contextPath}/read?no=${goods.gNo}"> 
-											<img src="${pageContext.request.contextPath}/assets/img/${goods.saveName}">
+											<a href="${pageContext.request.contextPath}/read?no=${goods.gno}"> 
+											<img src="${pageContext.request.contextPath}/upload/${goods.imgName}">
+											<!-- <img src="${pageContext.request.contextPath}/assets/img/${goods.imgName}"> -->
 											
-											<!--  <img src="${pageContext.request.contextPath}/assets/img/hybrid30/hybrid_black_small.jpg"> -->
+											
 											</a>
 
 										</div>
 										
-										<!-- 
-										<div class="imgItemColor">
-											<div class="itemGrid">
-												<div>
-													<button class="color-circle black"></button>
-												</div>
-												<div>
-													<button class="color-circle red"></button>
-												</div>
-												<div>
-													<button class="color-circle blue"></button>
-												</div>
-
-											</div>
-										</div>
 										
-										 -->
-
 										<div class="itemName">${goods.name}</div>
 										<div class="itemPrice">${goods.price}원</div>
 									</div>
@@ -138,68 +122,6 @@
 						</c:forEach>
 
 
-						<!-- 제품 하나 출력 -->
-						<!-- 
-						<ul id="viewArea">
-							<li>
-								<div class="view">
-									<div class="itemimg">
-										<a href="${pageContext.request.contextPath}/read">
-											<img src="${pageContext.request.contextPath}/assets/img/hybrid30/hybrid_black_small.jpg">
-										</a>
-										
-									</div>
-									<div class="imgItemColor">
-										<div class="itemGrid">
-											<div>
-												<button class="color-circle black"></button>
-											</div>
-											<div>
-												<button class="color-circle red"></button>
-											</div>
-											<div>
-												<button class="color-circle blue"></button>
-											</div>
-
-										</div>
-									</div>
-
-									<div class="itemName">하이브리드 3.0 카고컨테이너 에디션</div>
-									<div class="itemPrice">99,000원</div>
-								</div>
-
-							</li>
-							<li>
-								<div class="view">
-									<img>제품사진2 <img>색상2
-									<div>제품명2</div>
-									<div>가격2</div>
-								</div>
-
-							</li>
-							<li>
-								<div class="view">
-									<img>제품사진3 <img>색상3
-									<div>제품명3</div>
-									<div>가격3</div>
-								</div>
-
-							</li>
-							<li>
-								<div class="view">
-									<img>제품사진4 <img>색상4
-									<div>제품명4</div>
-									<div>가격4</div>
-								</div>
-
-							</li>
-
-						</ul>
-						
-						
-						
-						<!-- ////제품 하나 출력 -->
-						 -->
 
 
 

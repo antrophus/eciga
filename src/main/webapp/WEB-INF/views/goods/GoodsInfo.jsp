@@ -34,7 +34,8 @@
 					<!-- 상품 이미지 -->
 					<div class="product-image">
 						<!-- <img id="productImage" src="${pageContext.request.contextPath}/assets/img/hybrid30cce/hybrid30cce_brown.jpg" alt="상품 이미지"> -->
-						<img id="productImage" src="${pageContext.request.contextPath}/assets/img/${goodsVo.saveName}" alt="상품 이미지">
+						<img id="productImage" src="${pageContext.request.contextPath}/upload/${goodsVo.imgName}" alt="상품 이미지">
+						<!-- <img id="productImage" src="${pageContext.request.contextPath}/assets/img/${goodsVo.imgName}" alt="상품 이미지"> -->
 					</div>
 
 					<!-- 상품 상세 정보 -->
@@ -71,10 +72,10 @@
 
 
 						<!-- 상품넘버 -->
-						<input type="hidden" name="fNo" value="${goodsVo.fNo}">
+						<input type="hidden" name="fno" value="${goodsVo.fno}">
 						<!-- 로그인세션 -->
 						<!-- <input type="hidden" name="uId" value="${sessionScope.uId}"> -->
-						<input type="hidden" name="uId" value="1">
+						<input type="hidden" name="uno" value="2">
 
 
 
@@ -140,7 +141,7 @@
 		event.preventDefault(); // 기본 폼 제출 방지
 		 
 		let count = document.querySelector('[name="count"]').value;
-		let fNo =  document.querySelector('[name="fNo"]').value;
+		let fNo =  document.querySelector('[name="fno"]').value;
 	
 		let cartVo = {
 			count: count,

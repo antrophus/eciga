@@ -8,7 +8,7 @@ public class CartVo {
 	private int fNo; // 상품색상번호
 	private int count;
 	private int gNo; // 제품번호
-	private String saveName; // 제풍이미지
+	private String imgName; // 제풍이미지
 	private String name; // 제품명
 	private int price; // 제품 가격
 
@@ -16,7 +16,7 @@ public class CartVo {
 		super();
 	}
 
-	public CartVo(int cNo, int uId, int uNo, int fNo, int count, int gNo, String saveName, String name, int price) {
+	public CartVo(int cNo, int uId, int uNo, int fNo, int count, int gNo, String imgName, String name, int price) {
 		super();
 		this.cNo = cNo;
 		this.uId = uId;
@@ -24,7 +24,7 @@ public class CartVo {
 		this.fNo = fNo;
 		this.count = count;
 		this.gNo = gNo;
-		this.saveName = saveName;
+		this.imgName = imgName;
 		this.name = name;
 		this.price = price;
 	}
@@ -77,12 +77,12 @@ public class CartVo {
 		this.gNo = gNo;
 	}
 
-	public String getSaveName() {
-		return saveName;
+	public String getImgName() {
+		return imgName;
 	}
 
-	public void setSaveName(String saveName) {
-		this.saveName = saveName;
+	public void setImgName(String imgName) {
+		this.imgName = imgName;
 	}
 
 	public String getName() {
@@ -104,7 +104,20 @@ public class CartVo {
 	@Override
 	public String toString() {
 		return "CartVo [cNo=" + cNo + ", uId=" + uId + ", uNo=" + uNo + ", fNo=" + fNo + ", count=" + count + ", gNo="
-				+ gNo + ", saveName=" + saveName + ", name=" + name + ", price=" + price + "]";
+				+ gNo + ", imgName=" + imgName + ", name=" + name + ", price=" + price + "]";
 	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

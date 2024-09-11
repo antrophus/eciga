@@ -105,8 +105,8 @@
     height: 500px;
     margin: 5px 0px 0px 3px;
 
-    /* 추후 삭제 요망 */
-    border: 1px solid #000000; 
+    /* 추후 삭제 요망 
+    border: 1px solid #000000; */
     float: left;
 }
 
@@ -116,7 +116,7 @@
     cursor: Pointer;
     margin: 0 auto;
 
-    background-color: blueviolet;
+    /*background-color: blueviolet;*/
 }
 
 #gallery .itemimg img {
@@ -218,7 +218,7 @@
     width: 400px;
     height: 650px;
 
-    border: 2px solid #000000;
+   /* border: 2px solid #000000;*/
     float:left;
 
 
@@ -231,7 +231,7 @@
     width: 400px;
     height: 650px;
 
-    border: 2px solid #000000;
+    /*border: 2px solid #000000;*/
     float:left;
 
     padding-top: 100px;

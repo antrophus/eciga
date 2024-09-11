@@ -30,9 +30,9 @@ public class MyController {
 
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
 
-		UserVo userVo = myService.exeMyAcc(authUser.getUno());
+		//UserVo userVo = myService.exeMyAcc(authUser.getUno());
 
-		model.addAttribute("userVo", userVo);
+		//model.addAttribute("userVo", userVo);
 
 		return "user/myAccount";
 	}

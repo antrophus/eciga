@@ -34,8 +34,9 @@
                   <span class="period-label">기간조회</span>
 
                   <!-- 입력된 값이 없을 때 기본값을 null로 처리 -->
-                  <input type="date" name="startDate" class="date-input" value="${startDate != null ? startDate : ''}"> <input type="date" name="endDate"
-                     class="date-input" value="${endDate != null ? endDate : ''}"> <select class="form-control" name="status">
+                  <input type="date" name="startDate" class="date-input" value="${startDate != null ? startDate : ''}"> 
+                  <input type="date" name="endDate"  class="date-input" value="${endDate != null ? endDate : ''}"> 
+                  <select class="form-control" name="status">
                      <option value="" ${status == '' ? 'selected' : ''}>처리상태</option>
                      <option value="답변대기" ${status == '답변대기' ? 'selected' : ''}>답변대기</option>
                      <option value="처리완료" ${status == '처리완료' ? 'selected' : ''}>처리완료</option>

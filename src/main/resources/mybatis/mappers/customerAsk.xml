@@ -17,8 +17,8 @@
     AND (ci.title LIKE CONCAT('%', #{keyword}, '%') OR #{keyword} IS NULL)
     AND (
          (ci.reg_date BETWEEN #{startDate} AND #{endDate})
-      OR (#{startDate} IS NULL OR #{startDate} = '' OR #{endDate} IS NULL OR #{endDate} = '')
-        )
+         OR (#{startDate} IS NULL OR #{endDate} IS NULL)  
+       )
     ORDER BY ci.inquiry_no DESC
     LIMIT #{startRowNo}, #{listCnt}
    ]]>
